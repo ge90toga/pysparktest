@@ -1,0 +1,19 @@
+# version: "3.9"  # optional since v1.27.0
+# services:
+#   pyspark:
+#     stdin_open: true
+#     tty: true
+#     image: "godatadriven/pyspark"
+#     ports:
+#       - "4040:4040"
+#     volumes:
+#       - .:/job
+
+
+version: "3.9"  # optional since v1.27.0
+services:
+  pyspark-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: liquan/pysparktest

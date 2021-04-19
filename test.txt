@@ -1,0 +1,5 @@
+REPOSITORY             TAG          DIGEST                                                                    IMAGE ID       CREATED         SIZE
+liquan/pysparktest     latest       <none>                                                                    aaad863b3b9f   6 minutes ago   733MB
+openjdk                8-jre-slim   sha256:ac7e3acb1e58cd21a42698fcc275085214f38d3a1c8fb07153b4109271b95048   22edc31c305b   8 days ago      187MB
+alpine/git             latest       sha256:1eb7b41cd5226ebe64d1636c4183fe3ddc60249960c48fbe9cde61ea044db18e   a939554ad0d0   8 weeks ago     25.1MB
+godatadriven/pyspark   latest       sha256:2ed3d2b6c3d540f9279ad0be8cc375d4a4fdc42b52496572adf21313d4ef7e4a   d1c8e7d73e44   2 months ago    733MB
