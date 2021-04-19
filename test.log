@@ -1,88 +1,111 @@
+li_quan@SYDN-300966-C02DT05ZMD6W pyspark % docker-compose up --build --abort-on-container-exit --exit-code-from pyspark-test
 Docker Compose is now in the Docker CLI, try `docker compose up`
 
+Building pyspark-test
+[+] Building 0.1s (9/9) FINISHED                                                                                                                 
+ => [internal] load build definition from Dockerfile                                                                                        0.0s
+ => => transferring dockerfile: 245B                                                                                                        0.0s
+ => [internal] load .dockerignore                                                                                                           0.0s
+ => => transferring context: 2B                                                                                                             0.0s
+ => [internal] load metadata for docker.io/godatadriven/pyspark@sha256:2ed3d2b6c3d540f9279ad0be8cc375d4a4fdc42b52496572adf21313d4ef7e4a     0.0s
+ => [1/4] FROM docker.io/godatadriven/pyspark@sha256:2ed3d2b6c3d540f9279ad0be8cc375d4a4fdc42b52496572adf21313d4ef7e4a                       0.0s
+ => [internal] load build context                                                                                                           0.0s
+ => => transferring context: 30B                                                                                                            0.0s
+ => CACHED [2/4] RUN mkdir /job                                                                                                             0.0s
+ => CACHED [3/4] COPY *.py /job                                                                                                             0.0s
+ => CACHED [4/4] RUN chmod 777 /job/*.py                                                                                                    0.0s
+ => exporting to image                                                                                                                      0.0s
+ => => exporting layers                                                                                                                     0.0s
+ => => writing image sha256:3a1f9dc9c22e0a0a5c6cf73884120fd42e2675bf5a04e147b96dff7a640c7c2a                                                0.0s
+ => => naming to docker.io/liquan/pysparktest                                                                                               0.0s
 
 Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
-Successfully built aaad863b3b9fba3a56c28d126b95372fa23b6bd719cbd0006ca556abc4562197
-Attaching to pyspark_pyspark_1
-[36mpyspark_1  |[0m WARNING: An illegal reflective access operation has occurred
-[36mpyspark_1  |[0m WARNING: Illegal reflective access by org.apache.spark.unsafe.Platform (file:/opt/miniconda3/lib/python3.8/site-packages/pyspark/jars/spark-unsafe_2.12-3.0.1.jar) to constructor java.nio.DirectByteBuffer(long,int)
-[36mpyspark_1  |[0m WARNING: Please consider reporting this to the maintainers of org.apache.spark.unsafe.Platform
-[36mpyspark_1  |[0m WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
-[36mpyspark_1  |[0m WARNING: All illegal access operations will be denied in a future release
-[36mpyspark_1  |[0m 21/04/19 04:26:43 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
-[36mpyspark_1  |[0m Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
-[36mpyspark_1  |[0m 21/04/19 04:26:44 INFO SparkContext: Running Spark version 3.0.1
-[36mpyspark_1  |[0m 21/04/19 04:26:44 INFO ResourceUtils: ==============================================================
-[36mpyspark_1  |[0m 21/04/19 04:26:44 INFO ResourceUtils: Resources for spark.driver:
-[36mpyspark_1  |[0m 
-[36mpyspark_1  |[0m 21/04/19 04:26:44 INFO ResourceUtils: ==============================================================
-[36mpyspark_1  |[0m 21/04/19 04:26:44 INFO SparkContext: Submitted application: start.py
-[36mpyspark_1  |[0m 21/04/19 04:26:44 INFO SecurityManager: Changing view acls to: root
-[36mpyspark_1  |[0m 21/04/19 04:26:44 INFO SecurityManager: Changing modify acls to: root
-[36mpyspark_1  |[0m 21/04/19 04:26:44 INFO SecurityManager: Changing view acls groups to: 
-[36mpyspark_1  |[0m 21/04/19 04:26:44 INFO SecurityManager: Changing modify acls groups to: 
-[36mpyspark_1  |[0m 21/04/19 04:26:44 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(root); groups with view permissions: Set(); users  with modify permissions: Set(root); groups with modify permissions: Set()
-[36mpyspark_1  |[0m 21/04/19 04:26:44 INFO Utils: Successfully started service 'sparkDriver' on port 34431.
-[36mpyspark_1  |[0m 21/04/19 04:26:44 INFO SparkEnv: Registering MapOutputTracker
-[36mpyspark_1  |[0m 21/04/19 04:26:44 INFO SparkEnv: Registering BlockManagerMaster
-[36mpyspark_1  |[0m 21/04/19 04:26:44 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
-[36mpyspark_1  |[0m 21/04/19 04:26:44 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
-[36mpyspark_1  |[0m 21/04/19 04:26:44 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
-[36mpyspark_1  |[0m 21/04/19 04:26:44 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-6a861061-1ae8-431e-aa28-f51e800111ca
-[36mpyspark_1  |[0m 21/04/19 04:26:44 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
-[36mpyspark_1  |[0m 21/04/19 04:26:44 INFO SparkEnv: Registering OutputCommitCoordinator
-[36mpyspark_1  |[0m 21/04/19 04:26:44 INFO Utils: Successfully started service 'SparkUI' on port 4040.
-[36mpyspark_1  |[0m 21/04/19 04:26:44 INFO SparkUI: Bound SparkUI to 0.0.0.0, and started at http://910d304a614b:4040
-[36mpyspark_1  |[0m 21/04/19 04:26:45 INFO Executor: Starting executor ID driver on host 910d304a614b
-[36mpyspark_1  |[0m 21/04/19 04:26:45 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 42899.
-[36mpyspark_1  |[0m 21/04/19 04:26:45 INFO NettyBlockTransferService: Server created on 910d304a614b:42899
-[36mpyspark_1  |[0m 21/04/19 04:26:45 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
-[36mpyspark_1  |[0m 21/04/19 04:26:45 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 910d304a614b, 42899, None)
-[36mpyspark_1  |[0m 21/04/19 04:26:45 INFO BlockManagerMasterEndpoint: Registering block manager 910d304a614b:42899 with 434.4 MiB RAM, BlockManagerId(driver, 910d304a614b, 42899, None)
-[36mpyspark_1  |[0m 21/04/19 04:26:45 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 910d304a614b, 42899, None)
-[36mpyspark_1  |[0m 21/04/19 04:26:45 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 910d304a614b, 42899, None)
-[36mpyspark_1  |[0m 21/04/19 04:26:45 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir ('file:/spark-warehouse').
-[36mpyspark_1  |[0m 21/04/19 04:26:45 INFO SharedState: Warehouse path is 'file:/spark-warehouse'.
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO CodeGenerator: Code generated in 159.5722 ms
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO SparkContext: Starting job: showString at <unknown>:0
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO DAGScheduler: Got job 0 (showString at <unknown>:0) with 1 output partitions
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO DAGScheduler: Final stage: ResultStage 0 (showString at <unknown>:0)
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO DAGScheduler: Parents of final stage: List()
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO DAGScheduler: Missing parents: List()
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[2] at showString at <unknown>:0), which has no missing parents
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 6.3 KiB, free 434.4 MiB)
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 3.3 KiB, free 434.4 MiB)
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 910d304a614b:42899 (size: 3.3 KiB, free: 434.4 MiB)
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1223
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (MapPartitionsRDD[2] at showString at <unknown>:0) (first 15 tasks are for partitions Vector(0))
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0, 910d304a614b, executor driver, partition 0, PROCESS_LOCAL, 7561 bytes)
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 1373 bytes result sent to driver
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 155 ms on 910d304a614b (executor driver) (1/1)
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO DAGScheduler: ResultStage 0 (showString at <unknown>:0) finished in 0.352 s
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO DAGScheduler: Job 0 finished: showString at <unknown>:0, took 0.399543 s
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO CodeGenerator: Code generated in 19.2371 ms
-[36mpyspark_1  |[0m +-----+
-[36mpyspark_1  |[0m |hello|
-[36mpyspark_1  |[0m +-----+
-[36mpyspark_1  |[0m |spark|
-[36mpyspark_1  |[0m +-----+
-[36mpyspark_1  |[0m 
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO SparkContext: Invoking stop() from shutdown hook
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO SparkUI: Stopped Spark web UI at http://910d304a614b:4040
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO MemoryStore: MemoryStore cleared
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO BlockManager: BlockManager stopped
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO BlockManagerMaster: BlockManagerMaster stopped
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO SparkContext: Successfully stopped SparkContext
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO ShutdownHookManager: Shutdown hook called
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO ShutdownHookManager: Deleting directory /tmp/spark-14a58ad9-a2b3-42d9-982a-bedcd634a86d
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO ShutdownHookManager: Deleting directory /tmp/spark-de30e5e4-9bc5-45e4-8b12-559db42aa90e
-[36mpyspark_1  |[0m 21/04/19 04:26:48 INFO ShutdownHookManager: Deleting directory /tmp/spark-14a58ad9-a2b3-42d9-982a-bedcd634a86d/pyspark-9c8f6d2d-9e2e-41ad-9f22-16c156a1fca8
-[36mpyspark_pyspark_1 exited with code 0
-[0m
+Successfully built 3a1f9dc9c22e0a0a5c6cf73884120fd42e2675bf5a04e147b96dff7a640c7c2a
+Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
+Starting pyspark_pyspark-test_1 ... done
+Attaching to pyspark_pyspark-test_1
+pyspark-test_1  | WARNING: An illegal reflective access operation has occurred
+pyspark-test_1  | WARNING: Illegal reflective access by org.apache.spark.unsafe.Platform (file:/opt/miniconda3/lib/python3.8/site-packages/pyspark/jars/spark-unsafe_2.12-3.0.1.jar) to constructor java.nio.DirectByteBuffer(long,int)
+pyspark-test_1  | WARNING: Please consider reporting this to the maintainers of org.apache.spark.unsafe.Platform
+pyspark-test_1  | WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+pyspark-test_1  | WARNING: All illegal access operations will be denied in a future release
+pyspark-test_1  | 21/04/19 05:25:47 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+pyspark-test_1  | PYTHONPATH /opt/miniconda3/lib/python3.8/site-packages/pyspark/python/lib/pyspark.zip:/opt/miniconda3/lib/python3.8/site-packages/pyspark/python/lib/py4j-0.10.9-src.zip:/opt/miniconda3/lib/python3.8/site-packages/pyspark/jars/spark-core_2.12-3.0.1.jar
+pyspark-test_1  | SPARK_HOME /opt/miniconda3/lib/python3.8/site-packages/pyspark
+pyspark-test_1  | JAVA_HOME /usr/local/openjdk-11
+pyspark-test_1  | Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+pyspark-test_1  | 21/04/19 05:25:48 INFO SparkContext: Running Spark version 3.0.1
+pyspark-test_1  | 21/04/19 05:25:48 INFO ResourceUtils: ==============================================================
+pyspark-test_1  | 21/04/19 05:25:48 INFO ResourceUtils: Resources for spark.driver:
+pyspark-test_1  | 
+pyspark-test_1  | 21/04/19 05:25:48 INFO ResourceUtils: ==============================================================
+pyspark-test_1  | 21/04/19 05:25:48 INFO SparkContext: Submitted application: start.py
+pyspark-test_1  | 21/04/19 05:25:48 INFO SecurityManager: Changing view acls to: root
+pyspark-test_1  | 21/04/19 05:25:48 INFO SecurityManager: Changing modify acls to: root
+pyspark-test_1  | 21/04/19 05:25:48 INFO SecurityManager: Changing view acls groups to: 
+pyspark-test_1  | 21/04/19 05:25:48 INFO SecurityManager: Changing modify acls groups to: 
+pyspark-test_1  | 21/04/19 05:25:48 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(root); groups with view permissions: Set(); users  with modify permissions: Set(root); groups with modify permissions: Set()
+pyspark-test_1  | 21/04/19 05:25:48 INFO Utils: Successfully started service 'sparkDriver' on port 36847.
+pyspark-test_1  | 21/04/19 05:25:48 INFO SparkEnv: Registering MapOutputTracker
+pyspark-test_1  | 21/04/19 05:25:48 INFO SparkEnv: Registering BlockManagerMaster
+pyspark-test_1  | 21/04/19 05:25:48 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+pyspark-test_1  | 21/04/19 05:25:48 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+pyspark-test_1  | 21/04/19 05:25:48 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+pyspark-test_1  | 21/04/19 05:25:48 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-04e8184d-c68d-43ad-9ff1-f140232209fb
+pyspark-test_1  | 21/04/19 05:25:48 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+pyspark-test_1  | 21/04/19 05:25:48 INFO SparkEnv: Registering OutputCommitCoordinator
+pyspark-test_1  | 21/04/19 05:25:49 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+pyspark-test_1  | 21/04/19 05:25:49 INFO SparkUI: Bound SparkUI to 0.0.0.0, and started at http://8ad958510a57:4040
+pyspark-test_1  | 21/04/19 05:25:49 INFO Executor: Starting executor ID driver on host 8ad958510a57
+pyspark-test_1  | 21/04/19 05:25:49 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 40889.
+pyspark-test_1  | 21/04/19 05:25:49 INFO NettyBlockTransferService: Server created on 8ad958510a57:40889
+pyspark-test_1  | 21/04/19 05:25:49 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+pyspark-test_1  | 21/04/19 05:25:49 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 8ad958510a57, 40889, None)
+pyspark-test_1  | 21/04/19 05:25:49 INFO BlockManagerMasterEndpoint: Registering block manager 8ad958510a57:40889 with 434.4 MiB RAM, BlockManagerId(driver, 8ad958510a57, 40889, None)
+pyspark-test_1  | 21/04/19 05:25:49 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 8ad958510a57, 40889, None)
+pyspark-test_1  | 21/04/19 05:25:49 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 8ad958510a57, 40889, None)
+pyspark-test_1  | 21/04/19 05:25:49 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir ('file:/spark-warehouse').
+pyspark-test_1  | 21/04/19 05:25:49 INFO SharedState: Warehouse path is 'file:/spark-warehouse'.
+pyspark-test_1  | 21/04/19 05:25:52 INFO CodeGenerator: Code generated in 164.5756 ms
+pyspark-test_1  | 21/04/19 05:25:52 INFO SparkContext: Starting job: showString at <unknown>:0
+pyspark-test_1  | 21/04/19 05:25:52 INFO DAGScheduler: Got job 0 (showString at <unknown>:0) with 1 output partitions
+pyspark-test_1  | 21/04/19 05:25:52 INFO DAGScheduler: Final stage: ResultStage 0 (showString at <unknown>:0)
+pyspark-test_1  | 21/04/19 05:25:52 INFO DAGScheduler: Parents of final stage: List()
+pyspark-test_1  | 21/04/19 05:25:52 INFO DAGScheduler: Missing parents: List()
+pyspark-test_1  | 21/04/19 05:25:52 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[2] at showString at <unknown>:0), which has no missing parents
+pyspark-test_1  | 21/04/19 05:25:52 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 6.3 KiB, free 434.4 MiB)
+pyspark-test_1  | 21/04/19 05:25:52 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 3.3 KiB, free 434.4 MiB)
+pyspark-test_1  | 21/04/19 05:25:52 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 8ad958510a57:40889 (size: 3.3 KiB, free: 434.4 MiB)
+pyspark-test_1  | 21/04/19 05:25:52 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1223
+pyspark-test_1  | 21/04/19 05:25:52 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (MapPartitionsRDD[2] at showString at <unknown>:0) (first 15 tasks are for partitions Vector(0))
+pyspark-test_1  | 21/04/19 05:25:52 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks
+pyspark-test_1  | 21/04/19 05:25:52 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0, 8ad958510a57, executor driver, partition 0, PROCESS_LOCAL, 7561 bytes)
+pyspark-test_1  | 21/04/19 05:25:52 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+pyspark-test_1  | 21/04/19 05:25:52 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 1373 bytes result sent to driver
+pyspark-test_1  | 21/04/19 05:25:52 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 155 ms on 8ad958510a57 (executor driver) (1/1)
+pyspark-test_1  | 21/04/19 05:25:52 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+pyspark-test_1  | 21/04/19 05:25:52 INFO DAGScheduler: ResultStage 0 (showString at <unknown>:0) finished in 0.354 s
+pyspark-test_1  | 21/04/19 05:25:52 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+pyspark-test_1  | 21/04/19 05:25:52 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
+pyspark-test_1  | 21/04/19 05:25:52 INFO DAGScheduler: Job 0 finished: showString at <unknown>:0, took 0.399402 s
+pyspark-test_1  | 21/04/19 05:25:52 INFO CodeGenerator: Code generated in 17.7785 ms
+pyspark-test_1  | +-----+
+pyspark-test_1  | |hello|
+pyspark-test_1  | +-----+
+pyspark-test_1  | |spark|
+pyspark-test_1  | +-----+
+pyspark-test_1  | 
+pyspark-test_1  | 21/04/19 05:25:53 INFO SparkContext: Invoking stop() from shutdown hook
+pyspark-test_1  | 21/04/19 05:25:53 INFO SparkUI: Stopped Spark web UI at http://8ad958510a57:4040
+pyspark-test_1  | 21/04/19 05:25:53 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+pyspark-test_1  | 21/04/19 05:25:53 INFO MemoryStore: MemoryStore cleared
+pyspark-test_1  | 21/04/19 05:25:53 INFO BlockManager: BlockManager stopped
+pyspark-test_1  | 21/04/19 05:25:53 INFO BlockManagerMaster: BlockManagerMaster stopped
+pyspark-test_1  | 21/04/19 05:25:53 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+pyspark-test_1  | 21/04/19 05:25:53 INFO SparkContext: Successfully stopped SparkContext
+pyspark-test_1  | 21/04/19 05:25:53 INFO ShutdownHookManager: Shutdown hook called
+pyspark-test_1  | 21/04/19 05:25:53 INFO ShutdownHookManager: Deleting directory /tmp/spark-e467c12e-2111-4cef-a5a9-cdb19adcea8e/pyspark-b92dec74-ea7b-4141-aad8-1791d0b25898
+pyspark-test_1  | 21/04/19 05:25:53 INFO ShutdownHookManager: Deleting directory /tmp/spark-e467c12e-2111-4cef-a5a9-cdb19adcea8e
+pyspark-test_1  | 21/04/19 05:25:53 INFO ShutdownHookManager: Deleting directory /tmp/spark-90c3360b-92e7-4989-bb9c-de4cc8a894b7
+pyspark_pyspark-test_1 exited with code 0
+Aborting on container exit...
