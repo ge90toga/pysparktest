@@ -5,4 +5,7 @@ RUN mkdir /job
 COPY *.py /job
 RUN chmod 777 /job/*.py
 
-ENTRYPOINT spark-submit /job/start.py
+ENV AWS_ACCESS_KEY_ID AKIAQELKM5YSLAHFANFH
+ENV AWS_SECRET_ACCESS_KEY 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
+
+ENTRYPOINT ["spark-submit", "/job/start.py"]

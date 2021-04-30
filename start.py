@@ -1,9 +1,15 @@
 from pyspark.sql import SparkSession
-import os
-print ('PYTHONPATH', os.environ['PYTHONPATH'])
-print('SPARK_HOME', os.environ['SPARK_HOME'])
-print('JAVA_HOME', os.environ['JAVA_HOME'])
-spark = SparkSession.builder.getOrCreate()
-df = spark.sql("select 'spark' as hello")
 
+spark = SparkSession.builder \
+            .appName("app_name") \
+            .getOrCreate()
+
+hadoop_conf=spark._jsc.hadoopConfiguration()
+hadoop_conf.set("fs.s3n.impl", "org.apache.hadoop.fs.s3native.NativeS3FileSystem")
+hadoop_conf.set("fs.s3n.awsAccessKeyId", 'AKIAQELKM5YSLAHFANFH')
+hadoop_conf.set("fs.s3n.awsSecretAccessKey", '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')
+
+
+    
+df=spark.read.csv("s3a://aws-devops-course-liquan/addresses.csv")
 df.show()
